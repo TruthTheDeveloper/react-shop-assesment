@@ -15,13 +15,15 @@ const Header = () => {
             <li className="mx-2">KIDS</li>
           </ul>
           <div>
-            <img src={logo} />          
+            <img src={logo} />
           </div>
-          <div className="flex"> 
+          <div className="flex">
             <div>
               <div className="flex w-full">
-                <span>$</span> 
-                <div className="mt-2 m-1 cursor-pointer"><img src={dropdown} className="w-full" /></div>
+                <span>$</span>
+                <div className="mt-2 m-1 cursor-pointer">
+                  <img src={dropdown} className="w-full" />
+                </div>
               </div>
               <ul className="fixed  p-2 text-sm">
                 <li className="p-2">$ USD</li>
@@ -30,7 +32,7 @@ const Header = () => {
               </ul>
             </div>
             <div className="m-1 cursor-pointer">
-              <img src={cart} className="w-full"/>
+              <img src={cart} className="w-full" />
             </div>
           </div>
         </nav>
