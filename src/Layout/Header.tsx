@@ -2,6 +2,9 @@ import { Outlet } from "react-router-dom";
 import logo from "../assets/logo.png";
 import dropdown from "../assets/dropdown.png";
 import cart from "../assets/cart.png";
+//React router
+import { NavLink } from "react-router-dom";
+
 const Header = () => {
   return (
     <>
@@ -9,10 +12,20 @@ const Header = () => {
         <nav className="flex justify-between m-8 mx-28">
           <ul className="flex text-sm">
             <li className="mx-2 border-b-2 pb-4 text-green-400 font-semibold border-green-400 ">
-              WOMEN
+              <NavLink to="/">
+                WOMEN
+              </NavLink>
             </li>
-            <li className="mx-2">MEN</li>
-            <li className="mx-2">KIDS</li>
+            <li className="mx-2">
+            <NavLink to="/">
+              MEN
+            </NavLink>
+            </li>
+            <li className="mx-2">
+            <NavLink to="/">
+              KIDS
+            </NavLink>
+            </li>
           </ul>
           <div>
             <img src={logo} />

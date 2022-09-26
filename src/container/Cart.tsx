@@ -1,5 +1,11 @@
 import CartItemCard from "./../components/CartItemCard";
+import type { RootState } from '../store';
+import { useSelector, useDispatch } from 'react-redux';
 const Cart = () => {
+
+  const cartItem = useSelector((state: RootState) => state.productReducer.cart)
+  console.log(cartItem)
+
   return (
     <div className=" mx-28 mt-16">
       <h1 className="font-semibold text-xl mb-8">Cart</h1>
