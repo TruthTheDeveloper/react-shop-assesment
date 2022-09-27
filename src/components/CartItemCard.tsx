@@ -1,46 +1,97 @@
-const CartItemCard = () => {
+import { CartTypes } from "../tsd/product";
+import { useState, useEffect } from "react";
+import { useDispatch } from "react-redux";
+import {decrementTotalQuantity, incrementTotalQuantity} from "../store/productSlice";
+
+const CartItemCard = ({
+  id,
+  title,
+  subtitle,
+  size,
+  price,
+  image,
+  detail,
+  color,
+  selectedColor,
+  selectedSize,
+  qty,
+}: CartTypes) => {
+  const [quantity, setQuantity] = useState<number>(qty);
+  const [increment, setIncrement] = useState<boolean>(false)
+  const [decrement, setDecrement] = useState<boolean>(false)
+
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    if(increment){
+      dispatch(incrementTotalQuantity(quantity))
+      setIncrement(false)
+    }else if(decrement){
+      dispatch(decrementTotalQuantity(quantity))
+      setDecrement(false)
+    }
+  },[quantity])
+
+  const incrementQty = () => {
+    setQuantity((prev) => prev + 1);
+    setIncrement(true)
+  };
+
+  const decrementQty = () => {
+    quantity > 1 && setQuantity((prev) => prev - 1);
+    setDecrement(true)
+  };
+
   return (
-    <div className="flex justify-between my-8">
+    <div className="flex justify-between my-8 shadow-md px-8">
       <div className="">
-        <h1 className="font-semibold text-xl">Apollo</h1>
-        <p className="font-thin mb-4">Running Short</p>
-        <p className="mb-4 text-sm font-bold">$50,000</p>
+        <h1 className="font-semibold text-xl">{title}</h1>
+        <p className="font-thin mb-4">{subtitle}</p>
+        <p className="mb-4 text-sm font-bold">${price}</p>
         <div className="mb-4">
           <p className="text-sm font-bold">SIZE</p>
           <div className="flex">
-            <div className="px-2 py-1 border border-black mr-2">XS</div>
-            <div className="px-3 py-1 border border-black mx-2">S</div>
-            <div className="px-3 py-1 border border-black mx-2">M</div>
-            <div className="px-3 py-1 border border-black mx-2">L</div>
+            {size.map((el) =>
+              selectedSize === el ? (
+                <div className="px-2 py-1 border border-black text-white bg-black mr-2">
+                  {el}
+                </div>
+              ) : (
+                <div className="px-2 py-1 border border-black  mr-2">{el}</div>
+              )
+            )}
           </div>
         </div>
         <div className="mb-4">
           <p className="text-sm font-bold">COLOR</p>
           <div className="flex">
-            <div
-              className="px-2 py-2 border border-black mr-2"
-              style={{ background: "#0F6450" }}
-            ></div>
-            <div className="px-2 py-2 border border-black mr-2 bg-black"></div>
-            <div
-              className="px-2 py-2 border border-black mr-2"
-              style={{ background: "#D3D2D5" }}
-            ></div>
+            {color.map((el) => (
+              <div
+                className="px-2 py-2 border border-black mr-2"
+                style={{ background: `${el}` }}
+              ></div>
+            ))}
           </div>
         </div>
       </div>
       <div className="flex ">
         <div>
-          <div className="px-3 py-1 border border-black mx-2">+</div>
-          <div className="text-center my-14">1</div>
-          <div className="px-3 py-1 border border-black mx-2">-</div>
+          <div
+            className="px-3 py-1 border border-black mx-2 cursor-pointer"
+            onClick={incrementQty}
+          >
+            +
+          </div>
+          <div className="text-center my-14">{quantity}</div>
+          <div
+            className="px-3 py-1 border border-black mx-2 cursor-pointer"
+            onClick={decrementQty}
+          >
+            -
+          </div>
         </div>
         <div className="w-56">
-          <img
-            src={
-              "https://firebasestorage.googleapis.com/v0/b/naruto-208e5.appspot.com/o/Image.png?alt=media&token=c672e47b-e2e8-41a4-8ea4-25b9e5bd91bf"
-            }
-          />
+          <img src={image} />
         </div>
       </div>
     </div>

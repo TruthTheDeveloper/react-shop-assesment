@@ -1,68 +1,67 @@
 [
   {
-    "id":1,
+    "id": 1,
     "title": "Apollo Runing short",
-    "subtitle":"Running Short",
+    "subtitle": "Running Short",
     "price": 50000,
     "image": "https://firebasestorage.googleapis.com/v0/b/naruto-208e5.appspot.com/o/Image.png?alt=media&token=c672e47b-e2e8-41a4-8ea4-25b9e5bd91bf",
-    "detail":"Find stunning women's cocktail dresses and party dresses. Stand outin lace and metallic cocktail dresses and party dresses from all your favorite brands.",
-    "size":["XS", "S", "M", "L"],
-    "color":["green", "grey", "black"]
+    "detail": "Find stunning women's cocktail dresses and party dresses. Stand outin lace and metallic cocktail dresses and party dresses from all your favorite brands.",
+    "size": ["XS", "S", "M", "L"],
+    "color": ["green", "grey", "black"]
   },
 
   {
-    "id":2,
+    "id": 2,
     "title": "Apollo Runing short",
-    "subtitle":"Running Short",
+    "subtitle": "Running Short",
     "price": 50000,
     "image": "https://firebasestorage.googleapis.com/v0/b/naruto-208e5.appspot.com/o/Product%20B.png?alt=media&token=aa354ac1-58c7-430e-8b21-b0a48fb7c0f8",
-    "detail":"Find stunning women's cocktail dresses and party dresses. Stand outin lace and metallic cocktail dresses and party dresses from all your favorite brands.",
-    "size":["S", "M"],
-    "color":["black", "blue", "brown"]
+    "detail": "Find stunning women's cocktail dresses and party dresses. Stand outin lace and metallic cocktail dresses and party dresses from all your favorite brands.",
+    "size": ["S", "M"],
+    "color": ["black", "blue", "brown"]
   },
 
   {
-    "id":3,
+    "id": 3,
     "title": "Apollo Runing short",
-    "subtitle":"Running Short",
+    "subtitle": "Running Short",
     "price": 50000,
     "image": "https://firebasestorage.googleapis.com/v0/b/naruto-208e5.appspot.com/o/Product%20C.png?alt=media&token=cfb9afd5-2ac1-465b-aa68-c773961a5f1e",
-    "detail":"Find stunning women's cocktail dresses and party dresses. Stand outin lace and metallic cocktail dresses and party dresses from all your favorite brands.",
-    "size":["XS", "S", "M", "L"],
-    "color":["green", "grey", "black"]
+    "detail": "Find stunning women's cocktail dresses and party dresses. Stand outin lace and metallic cocktail dresses and party dresses from all your favorite brands.",
+    "size": ["XS", "S", "M", "L"],
+    "color": ["green", "grey", "black"]
   },
 
   {
-    "id":4,
+    "id": 4,
     "title": "Apollo Runing short",
-    "subtitle":"Running Short",
+    "subtitle": "Running Short",
     "price": 50000,
     "image": "https://firebasestorage.googleapis.com/v0/b/naruto-208e5.appspot.com/o/Product%20A.png?alt=media&token=ee8623bd-503c-486d-b463-bdea72a1a2ad",
-    "detail":"Find stunning women's cocktail dresses and party dresses. Stand outin lace and metallic cocktail dresses and party dresses from all your favorite brands.",
-    "size":["XS", "S", "M", "L"],
-    "color":["green", "grey", "black"]
+    "detail": "Find stunning women's cocktail dresses and party dresses. Stand outin lace and metallic cocktail dresses and party dresses from all your favorite brands.",
+    "size": ["XS", "S", "M", "L"],
+    "color": ["green", "grey", "black"]
   },
 
   {
-    "id":5,
+    "id": 5,
     "title": "Apollo Runing short",
-    "subtitle":"Running Short",
+    "subtitle": "Running Short",
     "price": 50000,
     "image": "https://firebasestorage.googleapis.com/v0/b/naruto-208e5.appspot.com/o/Image.png?alt=media&token=c672e47b-e2e8-41a4-8ea4-25b9e5bd91bf",
-    "detail":"Find stunning women's cocktail dresses and party dresses. Stand outin lace and metallic cocktail dresses and party dresses from all your favorite brands.",
-    "size":["S", "M"],
-    "color":["black", "blue", "brown"]
+    "detail": "Find stunning women's cocktail dresses and party dresses. Stand outin lace and metallic cocktail dresses and party dresses from all your favorite brands.",
+    "size": ["S", "M"],
+    "color": ["black", "blue", "brown"]
   },
 
   {
-    "id":6,
+    "id": 6,
     "title": "Apollo Runing short",
-    "subtitle":"Running Short",
+    "subtitle": "Running Short",
     "price": 50000,
     "image": "https://firebasestorage.googleapis.com/v0/b/naruto-208e5.appspot.com/o/Product%20C.png?alt=media&token=cfb9afd5-2ac1-465b-aa68-c773961a5f1e",
-    "detail":"Find stunning women's cocktail dresses and party dresses. Stand outin lace and metallic cocktail dresses and party dresses from all your favorite brands.",
-    "size":["XS", "S", "M", "L"],
-    "color":["green", "grey", "black"]
-    
+    "detail": "Find stunning women's cocktail dresses and party dresses. Stand outin lace and metallic cocktail dresses and party dresses from all your favorite brands.",
+    "size": ["XS", "S", "M", "L"],
+    "color": ["green", "grey", "black"]
   }
 ]

@@ -12,19 +12,13 @@ const Header = () => {
         <nav className="flex justify-between m-8 mx-28">
           <ul className="flex text-sm">
             <li className="mx-2 border-b-2 pb-4 text-green-400 font-semibold border-green-400 ">
-              <NavLink to="/">
-                WOMEN
-              </NavLink>
+              <NavLink to="/">WOMEN</NavLink>
             </li>
             <li className="mx-2">
-            <NavLink to="/">
-              MEN
-            </NavLink>
+              <NavLink to="/">MEN</NavLink>
             </li>
             <li className="mx-2">
-            <NavLink to="/">
-              KIDS
-            </NavLink>
+              <NavLink to="/">KIDS</NavLink>
             </li>
           </ul>
           <div>
@@ -38,7 +32,7 @@ const Header = () => {
                   <img src={dropdown} className="w-full" />
                 </div>
               </div>
-              <ul className="fixed  p-2 text-sm">
+              <ul className="fixed  p-2 text-sm hidden">
                 <li className="p-2">$ USD</li>
                 <li className="p-2">€ EUR</li>
                 <li className="p-2">¥ JPY</li>
