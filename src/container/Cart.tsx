@@ -1,27 +1,21 @@
 import { useState } from "react";
-import CartItemCard from "./../components/CartItemCard";
+import CartItem from "../components/CartItems";
 import type { RootState } from "../store";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import { CartTypes } from "../tsd/product";
+import { formatToCurrency } from "../utilities/priceFormatter";
 
 const Cart = () => {
-  const cartItems = useSelector(
-    (state: RootState) => state.productReducer.cart
-  );
-  const totalCost = useSelector(
-    (state: RootState) => state.productReducer.totalCost
-  );
 
-  const tax = useSelector(
-    (state: RootState) => state.productReducer.tax
+  const {cart, totalCost, tax, totalQuantity, currency} = useSelector(
+    (state: RootState) => state.productReducer
   );
-  console.log(cartItems);
 
   return (
     <div className=" mx-28 mt-16">
       <h1 className="font-semibold text-xl mb-8 px-8">Cart</h1>
 
-      {cartItems.map((el: CartTypes) => {
+      {cart.map((el: CartTypes) => {
         const {
           id,
           title,
@@ -36,7 +30,7 @@ const Cart = () => {
           qty,
         } = el;
         return (
-          <CartItemCard
+          <CartItem
             key={id}
             id={id}
             title={title}
@@ -55,13 +49,13 @@ const Cart = () => {
 
       <div className="text-sm px-8">
         <div>
-          <span>Tax 21%</span> <span className="mx-3 font-bold">$ `${tax}`</span>
+          <span>Tax 21%</span> <span className="mx-3 font-bold">{`${currency}`}{`${tax}`}</span>
         </div>
         <div>
-          <span>Quantity </span> <span className="mx-3 font-bold">2</span>
+          <span>Quantity </span> <span className="mx-3 font-bold">{`${currency}`}{`${totalQuantity}`}</span>
         </div>
         <div>
-          <span>Total </span> <span className="mx-3 font-bold">$`${totalCost}`</span>
+          <span>Total </span> <span className="mx-3 font-bold">{`${currency}`}{`${formatToCurrency(totalCost)}`}</span>
         </div>
         <button className="px-24 text-sm py-2 bg-green-400 text-white my-4">
           ORDER

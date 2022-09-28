@@ -5,15 +5,16 @@ import { getProduct } from "../store/productSlice";
 import type { RootState } from "../store";
 import { addTocart, addToTotalCost, calculateTax } from "../store/productSlice";
 import { useNavigate } from "react-router-dom";
+import { formatToCurrency } from "../utilities/priceFormatter";
 // import { CartTypes } from "../tsd/product";
 
 const ItemDetail = () => {
-  const singleProduct = useSelector(
-    (state: RootState) => state.productReducer.singleProduct
+  const {singleProduct, currency} = useSelector(
+    (state: RootState) => state.productReducer
   );
 
   const [selectedSize, setSelectedSize] = useState<string>(
-    singleProduct?.color[0] || "M"
+    singleProduct?.size[0] || "M"
   );
   const [selectedColor, setSelectedColor] = useState<string>(
     singleProduct?.color[0] || "blue"
@@ -114,7 +115,7 @@ const ItemDetail = () => {
         </div>
         <div className="mb-4 text-sm font-bold">
           <p>PRICE</p>
-          <p>${singleProduct?.price}</p>
+          <p>{`${currency}`} {singleProduct && formatToCurrency(singleProduct?.price)}</p>
         </div>
         <button
           className="py-3 px-8 bg-green-400 text-white mb-4"
