@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 import { productItemType } from "../tsd/product";
 
 const LandingPage = () => {
-  const {allProduct, showModal} = useSelector(
+  const { allProduct, showModal } = useSelector(
     (state: RootState) => state.productReducer
   );
   return (
@@ -29,7 +29,6 @@ const LandingPage = () => {
           })}
         </div>
       </section>
-      
     </>
   );
 };

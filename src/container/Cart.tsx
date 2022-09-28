@@ -6,8 +6,7 @@ import { CartTypes } from "../tsd/product";
 import { formatToCurrency } from "../utilities/priceFormatter";
 
 const Cart = () => {
-
-  const {cart, totalCost, tax, totalQuantity, currency} = useSelector(
+  const { cart, totalCost, tax, totalQuantity, currency } = useSelector(
     (state: RootState) => state.productReducer
   );
 
@@ -49,13 +48,25 @@ const Cart = () => {
 
       <div className="text-sm px-8">
         <div>
-          <span>Tax 21%</span> <span className="mx-3 font-bold">{`${currency}`}{`${tax}`}</span>
+          <span>Tax 21%</span>{" "}
+          <span className="mx-3 font-bold">
+            {`${currency}`}
+            {`${tax}`}
+          </span>
         </div>
         <div>
-          <span>Quantity </span> <span className="mx-3 font-bold">{`${currency}`}{`${totalQuantity}`}</span>
+          <span>Quantity </span>{" "}
+          <span className="mx-3 font-bold">
+            {`${currency}`}
+            {`${totalQuantity}`}
+          </span>
         </div>
         <div>
-          <span>Total </span> <span className="mx-3 font-bold">{`${currency}`}{`${formatToCurrency(totalCost)}`}</span>
+          <span>Total </span>{" "}
+          <span className="mx-3 font-bold">
+            {`${currency}`}
+            {`${formatToCurrency(totalCost)}`}
+          </span>
         </div>
         <button className="px-24 text-sm py-2 bg-green-400 text-white my-4">
           ORDER

@@ -9,7 +9,7 @@ import { formatToCurrency } from "../utilities/priceFormatter";
 // import { CartTypes } from "../tsd/product";
 
 const ItemDetail = () => {
-  const {singleProduct, currency} = useSelector(
+  const { singleProduct, currency } = useSelector(
     (state: RootState) => state.productReducer
   );
 
@@ -115,7 +115,10 @@ const ItemDetail = () => {
         </div>
         <div className="mb-4 text-sm font-bold">
           <p>PRICE</p>
-          <p>{`${currency}`} {singleProduct && formatToCurrency(singleProduct?.price)}</p>
+          <p>
+            {`${currency}`}{" "}
+            {singleProduct && formatToCurrency(singleProduct?.price)}
+          </p>
         </div>
         <button
           className="py-3 px-8 bg-green-400 text-white mb-4"

@@ -1,8 +1,12 @@
 import { CartTypes } from "../tsd/product";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {decrementTotalQuantity, incrementTotalQuantity, setTotalQuantityDefaulltValue} from "../store/productSlice";
-import { formatToCurrency } from "../utilities/priceFormatter"
+import {
+  decrementTotalQuantity,
+  incrementTotalQuantity,
+  setTotalQuantityDefaulltValue,
+} from "../store/productSlice";
+import { formatToCurrency } from "../utilities/priceFormatter";
 
 const CartItemCard = ({
   id,
@@ -18,34 +22,33 @@ const CartItemCard = ({
   qty,
 }: CartTypes) => {
   const [quantity, setQuantity] = useState<number>(qty);
-  const [increment, setIncrement] = useState<boolean>(false)
-  const [decrement, setDecrement] = useState<boolean>(false)
+  const [increment, setIncrement] = useState<boolean>(false);
+  const [decrement, setDecrement] = useState<boolean>(false);
 
-  const dispatch = useDispatch()
-
-  useEffect(() => {
-    dispatch(setTotalQuantityDefaulltValue())
-  },[])
-
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    if(increment){
-      dispatch(incrementTotalQuantity(1))
-      setIncrement(false)
-    }else if(decrement){
-      dispatch(decrementTotalQuantity(1))
-      setDecrement(false)
+    dispatch(setTotalQuantityDefaulltValue());
+  }, []);
+
+  useEffect(() => {
+    if (increment) {
+      dispatch(incrementTotalQuantity(1));
+      setIncrement(false);
+    } else if (decrement) {
+      dispatch(decrementTotalQuantity(1));
+      setDecrement(false);
     }
-  },[quantity, increment, decrement])
+  }, [quantity, increment, decrement]);
 
   const incrementQty = () => {
     setQuantity((prev) => prev + 1);
-    setIncrement(true)
+    setIncrement(true);
   };
 
   const decrementQty = () => {
     quantity > 1 && setQuantity((prev) => prev - 1);
-    setDecrement(true)
+    setDecrement(true);
   };
 
   return (

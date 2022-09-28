@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
-import { useSelector } from 'react-redux';
+import { useSelector } from "react-redux";
 import type { RootState } from "../store";
-import { formatToCurrency } from "../utilities/priceFormatter"
+import { formatToCurrency } from "../utilities/priceFormatter";
 
 interface props {
   id: number;
@@ -27,7 +27,10 @@ const CartItem = ({ id, img, title, price }: props) => {
     >
       <img src={img} />
       <p className="p-2">{title}</p>
-      <p className="p-2">{`${currency}`}{formatToCurrency(price)}</p>
+      <p className="p-2">
+        {`${currency}`}
+        {formatToCurrency(price)}
+      </p>
     </div>
   );
 };
