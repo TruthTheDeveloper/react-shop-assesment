@@ -33,14 +33,12 @@ const Header = () => {
   };
 
   const modalHandler = () => {
-    console.log("modal is open");
-    // setScroll(true)
     document.body.style.overflow = "visible";
     dispatch(setShowModal());
     setScroll(false);
   };
 
-  const swichCurrency = (cur: string) => {
+  const switchCurrency = (cur: string) => {
     dispatch(changeCurrency(cur));
   };
 
@@ -49,20 +47,22 @@ const Header = () => {
       <header>
         <nav className="flex justify-between m-8 mx-28">
           <ul className="flex text-sm">
-            <li className="mx-2 border-b-2 pb-4  font-semibold  ">
-              <NavLink className={(navData) =>
-                `${navData.isActive ? "bg-active text-green-400 border-green-400" : "text-inActive bg-white text-black"}`
-              }
-              to="/"
-
-              >WOMEN</NavLink>
+            <li className="mx-2 border-b-2 pb-4 border-green-400 font-semibold  ">
+              <NavLink
+                className={(navData) =>
+                  `${
+                    navData.isActive
+                      ? "bg-active text-green-400 "
+                      : "text-inActive bg-white text-black"
+                  }`
+                }
+                to="/"
+              >
+                WOMEN
+              </NavLink>
             </li>
-            <li className="mx-2">
-              MEN
-            </li>
-            <li className="mx-2">
-            KIDS
-            </li>
+            <li className="mx-2">MEN</li>
+            <li className="mx-2">KIDS</li>
           </ul>
           <div>
             <img src={logo} />
@@ -82,19 +82,19 @@ const Header = () => {
                 <ul className="fixed  p-2 text-sm">
                   <li
                     className="p-2 hover:bg-slate-200 cursor-pointer"
-                    onClick={() => swichCurrency("$")}
+                    onClick={() => switchCurrency("$")}
                   >
                     $ USD
                   </li>
                   <li
                     className="p-2 hover:bg-slate-200 cursor-pointer"
-                    onClick={() => swichCurrency("€")}
+                    onClick={() => switchCurrency("€")}
                   >
                     € EUR
                   </li>
                   <li
                     className="p-2 hover:bg-slate-200 cursor-pointer"
-                    onClick={() => swichCurrency("¥")}
+                    onClick={() => switchCurrency("¥")}
                   >
                     ¥ JPY
                   </li>
@@ -102,12 +102,14 @@ const Header = () => {
               )}
             </div>
             <div className="m-1 cursor-pointer" onClick={showCart}>
-              {cart.length > 0 && <div
-                className="bg-black text-white rounded-full text-center text-xs h-4 w-6 ml-5 z-30"
-                style={{ marginBottom: "-15px" }}
-              >
-                {cart.length}
-              </div>}
+              {cart.length > 0 && (
+                <div
+                  className="bg-black text-white rounded-full text-center text-xs h-4 w-6 ml-5 z-30"
+                  style={{ marginBottom: "-15px" }}
+                >
+                  {cart.length}
+                </div>
+              )}
               <img src={cartImage} className="w-full " />
             </div>
           </div>

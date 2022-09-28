@@ -19,10 +19,6 @@ const CartModelItem = ({
 }: CartTypes) => {
   const [quantity, setQuantity] = useState<number>(qty);
 
-  const singleProduct = useSelector(
-    (state: RootState) => state.productReducer.singleProduct
-  );
-
   const incrementQty = () => {
     setQuantity((prev) => prev + 1);
   };

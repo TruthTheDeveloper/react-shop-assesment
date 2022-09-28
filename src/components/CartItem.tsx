@@ -27,7 +27,7 @@ const CartItem = ({ id, img, title, price }: props) => {
     >
       <img src={img} />
       <p className="p-2">{title}</p>
-      <p className="p-2">
+      <p className="p-2 font-semibold">
         {`${currency}`}
         {formatToCurrency(price)}
       </p>

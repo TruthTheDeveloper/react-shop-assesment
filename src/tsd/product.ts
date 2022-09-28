@@ -29,3 +29,14 @@ export type allProductAndCartTypes = {
   color: string[];
   size: string[];
 };
+
+
+export interface PaymentRef {
+  message: string;
+  redirecturl: string;
+  reference: number;
+  status: string;
+  trans: number;
+  transaction: number;
+  trxref: number;
+}

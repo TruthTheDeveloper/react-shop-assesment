@@ -6,7 +6,6 @@ import type { RootState } from "../store";
 import { addTocart, addToTotalCost, calculateTax } from "../store/productSlice";
 import { useNavigate } from "react-router-dom";
 import { formatToCurrency } from "../utilities/priceFormatter";
-// import { CartTypes } from "../tsd/product";
 
 const ItemDetail = () => {
   const { singleProduct, currency } = useSelector(
@@ -115,7 +114,7 @@ const ItemDetail = () => {
         </div>
         <div className="mb-4 text-sm font-bold">
           <p>PRICE</p>
-          <p>
+          <p className="">
             {`${currency}`}{" "}
             {singleProduct && formatToCurrency(singleProduct?.price)}
           </p>

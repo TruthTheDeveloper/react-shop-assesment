@@ -1,12 +1,11 @@
 import CartItem from "../components/CartItem";
-import CartModel from "../components/CartModel";
 import type { RootState } from "../store";
 import { useSelector } from "react-redux";
 import { productItemType } from "../tsd/product";
 
 const LandingPage = () => {
-  const { allProduct, showModal } = useSelector(
-    (state: RootState) => state.productReducer
+  const allProduct  = useSelector(
+    (state: RootState) => state.productReducer.allProduct
   );
   return (
     <>
@@ -14,7 +13,7 @@ const LandingPage = () => {
         <h1 className="text-2xl ml-24">Category name</h1>
 
         <div className="grid grid-cols-3">
-          {allProduct.map((el: productItemType, _index: any) => {
+          {allProduct.map((el: productItemType, _index: number) => {
             const { title, image, price, id } = el;
 
             return (

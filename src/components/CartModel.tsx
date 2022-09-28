@@ -4,11 +4,13 @@ import { useSelector } from "react-redux";
 import { CartTypes } from "../tsd/product";
 import { useNavigate } from "react-router-dom";
 import { formatToCurrency } from "../utilities/priceFormatter";
-import { useDispatch } from "react-redux";
+import PaymentWithPaystack from "./paymentWithPaystack";
+import { PaymentRef } from "../tsd/product";
 
 const CartModel = () => {
+
+  const DROPDOWN_TYPE = 'drop'
   const navigateTo = useNavigate();
-  const dispatch = useDispatch();
 
   const { cart, totalCost, currency } = useSelector(
     (state: RootState) => state.productReducer
@@ -18,8 +20,8 @@ const CartModel = () => {
     navigateTo("/cart");
   };
 
-  const checkoutButtonHandler = () => {
-    // navigateTo('/')
+  const paymentResponse = (ref: PaymentRef) => {
+    console.log(ref);
   };
 
   return (
@@ -75,12 +77,12 @@ const CartModel = () => {
               {`${currency}`}
               {`${formatToCurrency(totalCost)}`}
             </p>
-            <button
-              className="px-6 mx-1 py-2 my-4 bg-green-400 text-white text-sm"
-              onClick={checkoutButtonHandler}
-            >
-              CHECKOUT
-            </button>
+            <PaymentWithPaystack
+              amount={totalCost}
+              paymentResponse={paymentResponse}
+              btn={DROPDOWN_TYPE}
+            />
+            
           </div>
         </div>
       </div>
