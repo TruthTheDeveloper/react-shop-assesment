@@ -2039,6 +2039,11 @@
   resolved "https://registry.yarnpkg.com/@types/parse-json/-/parse-json-4.0.0.tgz#2f8bb441434d163b35fb8ffdccd7138927ffb8c0"
   integrity sha512-//oorEZjL6sbPcKUaCdIGlIUeH26mgzimjBB77G6XRgnDl/L5wOnpyBGRe/Mmf5CVW3PwEBE1NjiMZ/ssFh4wA==
 
+"@types/paystack@^2.0.1":
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/@types/paystack/-/paystack-2.0.1.tgz#397929ac7779cf5a1a374a177d8dbf0dd34911db"
+  integrity sha512-pM5xu4ahqFSpxNFi5fm/QJtuplUuSg3PzjnMy7XjDapebUJ+Ixw1soUCV7UbqMra9No2WFXn81AcNdtPvc1niw==
+
 "@types/prettier@^2.1.5":
   version "2.7.0"
   resolved "https://registry.yarnpkg.com/@types/prettier/-/prettier-2.7.0.tgz#ea03e9f0376a4446f44797ca19d9c46c36e352dc"

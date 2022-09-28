@@ -4,11 +4,27 @@ import type { RootState } from "../store";
 import { useSelector } from "react-redux";
 import { CartTypes } from "../tsd/product";
 import { formatToCurrency } from "../utilities/priceFormatter";
+import PaymentWithPaystack from '../components/paymentWithPaystack';
+
+interface PaymentRef {
+  message: string;
+  redirecturl: string;
+  reference: number;
+  status: string;
+  trans: number;
+  transaction: number;
+  trxref: number;
+}
 
 const Cart = () => {
   const { cart, totalCost, tax, totalQuantity, currency } = useSelector(
     (state: RootState) => state.productReducer
   );
+
+  const paymentResponse = (ref: PaymentRef )=>{  
+    console.log(ref);
+  }
+
 
   return (
     <div className=" mx-28 mt-16">
@@ -68,9 +84,8 @@ const Cart = () => {
             {`${formatToCurrency(totalCost)}`}
           </span>
         </div>
-        <button className="px-24 text-sm py-2 bg-green-400 text-white my-4">
-          ORDER
-        </button>
+        <PaymentWithPaystack amount={totalCost} paymentResponse={paymentResponse}/>
+        
       </div>
     </div>
   );
