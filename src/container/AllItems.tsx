@@ -9,15 +9,12 @@ import { useEffect } from "react";
 const LandingPage = () => {
   const dispatch = useDispatch();
   useEffect(() => {
-    console.log("did it log");
     dispatch(checkIfProductInCart());
-  }, []);
+  }, [dispatch]);
 
   const allProduct = useSelector(
     (state: RootState) => state.productReducer.allProduct
   );
-
-  console.log(allProduct, "allproduct");
 
   return (
     <>

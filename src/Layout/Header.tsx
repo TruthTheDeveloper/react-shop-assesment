@@ -68,7 +68,7 @@ const Header = () => {
             <li className="mx-2">KIDS</li>
           </ul>
           <div>
-            <img src={logo} />
+            <img src={logo} alt="" />
           </div>
           <div className="flex">
             <div>
@@ -78,7 +78,7 @@ const Header = () => {
               >
                 <span>{currency}</span>
                 <div className="mt-2 m-1 cursor-pointer">
-                  <img src={dropdown} className="w-full" />
+                  <img src={dropdown} className="w-full" alt="" />
                 </div>
               </div>
               {showCurrency && (
@@ -106,7 +106,7 @@ const Header = () => {
             </div>
             <div className="m-1 cursor-pointer" onClick={showCart}>
               <div className="relative w-full h-full">
-                <img src={cartImage} className="w-full " />
+                <img src={cartImage} className="w-full " alt="" />
                 {cart.length > 0 && (
                   <div className="bg-black text-white text-center text-xs h-[18px] w-[18px] rounded-[20px] absolute top-[-5px] right-[-10px]">
                     {cart.length}

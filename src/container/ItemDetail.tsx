@@ -21,13 +21,13 @@ const ItemDetail = () => {
 
   useEffect(() => {
     id && dispatch(getProduct(+id));
-  }, []);
+  }, [dispatch, id]);
 
   useEffect(() => {
     singleProduct &&
       dispatch(addToTotalCost(singleProduct?.price)) &&
       dispatch(calculateTax());
-  }, [singleProduct]);
+  }, [singleProduct, dispatch]);
 
   const addToCartHandler = () => {
     singleProduct &&
@@ -55,17 +55,17 @@ const ItemDetail = () => {
       <div className="flex basis-1/2 ">
         <div>
           <div className="w-24 mb-4 cursor-pointer">
-            <img src={singleProduct?.image} />
+            <img src={singleProduct?.image} alt="" />
           </div>
           <div className="w-24 my-4 cursor-pointer">
-            <img src={singleProduct?.image} />
+            <img src={singleProduct?.image} alt="" />
           </div>
           <div className="w-24 my-4 cursor-pointer">
-            <img src={singleProduct?.image} />
+            <img src={singleProduct?.image} alt="" />
           </div>
         </div>
         <div className="w-full ml-16">
-          <img className="w-full" src={singleProduct?.image} />
+          <img className="w-full" alt="" src={singleProduct?.image} />
         </div>
       </div>
       <div className=" basis-1/2 pl-56 ">

@@ -17,8 +17,6 @@ interface props {
 const CartItem = ({ id, img, title, price, inCart, outOfStock }: props) => {
   const navigateTo = useNavigate();
 
-  console.log(inCart);
-
   const currency = useSelector(
     (state: RootState) => state.productReducer.currency
   );
@@ -35,12 +33,12 @@ const CartItem = ({ id, img, title, price, inCart, outOfStock }: props) => {
           onClick={navigate}
         >
           <div className="">
-            <img src={img} />
+            <img src={img} alt="" />
           </div>
 
           <div className="relative">
             <div className="bg-green-400 w-[40px] grid place-items-center h-[40px] rounded-[40px] absolute top-[-10px] right-5">
-              <img src={cartImage} />
+              <img src={cartImage} alt="" />
             </div>
             <p className="p-2">{title}</p>
             <p className="p-2 font-semibold">
@@ -57,7 +55,7 @@ const CartItem = ({ id, img, title, price, inCart, outOfStock }: props) => {
           onClick={navigate}
         >
           <div className="">
-            <img src={img} />
+            <img src={img} alt="" />
             <p className="absolute top-28 left-20  right-0 bottom-0">
               Out of stock
             </p>
@@ -79,7 +77,7 @@ const CartItem = ({ id, img, title, price, inCart, outOfStock }: props) => {
           onClick={navigate}
         >
           <div className="">
-            <img src={img} />
+            <img src={img} alt="" />
           </div>
 
           <div className="">

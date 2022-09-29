@@ -27,7 +27,7 @@ const CartItems = ({
 
   useEffect(() => {
     dispatch(setTotalQuantityDefaulltValue());
-  }, []);
+  }, [dispatch]);
 
   const incrementQty = () => {
     dispatch(incrementTotalQuantity(1));
@@ -95,7 +95,7 @@ const CartItems = ({
           </div>
         </div>
         <div className="w-56">
-          <img src={image} />
+          <img src={image} alt="" />
         </div>
       </div>
     </div>

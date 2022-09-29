@@ -1,5 +1,4 @@
 export const formatToCurrency = (amount: number) => {
-  console.log(typeof amount, "amount");
   return amount
     .toFixed(2)
     .replace(/\d(?=(\d{3})+\.)/g, "$&,")
@@ -14,5 +13,5 @@ export const formatStr = (str: string) => {
 };
 
 export const formatPriceToNumber = (amount: string) => {
-  return amount.replace(/\,/g, "");
+  return amount.replace(/,/g, "");
 };
