@@ -12,12 +12,8 @@ const ItemDetail = () => {
     (state: RootState) => state.productReducer
   );
 
-  const [selectedSize, setSelectedSize] = useState<string>(
-    singleProduct?.size[0] || "M"
-  );
-  const [selectedColor, setSelectedColor] = useState<string>(
-    singleProduct?.color[0] || "blue"
-  );
+  const [selectedSize, setSelectedSize] = useState<string>("M");
+  const [selectedColor, setSelectedColor] = useState<string>("blue");
 
   const dispatch = useDispatch();
   const { id } = useParams();
@@ -48,6 +44,7 @@ const ItemDetail = () => {
           selectedColor,
           selectedSize,
           qty: 1,
+          inCart: singleProduct?.inCart,
         })
       ) &&
       navigateTo("/cart");

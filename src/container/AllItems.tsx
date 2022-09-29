@@ -2,11 +2,23 @@ import CartItem from "../components/CartItem";
 import type { RootState } from "../store";
 import { useSelector } from "react-redux";
 import { productItemType } from "../tsd/product";
+import { checkIfProductInCart } from "../store/productSlice";
+import { useDispatch } from "react-redux";
+import { useEffect } from "react";
 
 const LandingPage = () => {
-  const allProduct  = useSelector(
+  const dispatch = useDispatch();
+  useEffect(() => {
+    console.log("did it log");
+    dispatch(checkIfProductInCart());
+  }, []);
+
+  const allProduct = useSelector(
     (state: RootState) => state.productReducer.allProduct
   );
+
+  console.log(allProduct, "allproduct");
+
   return (
     <>
       <section className="m-8 bg-white  ">
@@ -14,7 +26,7 @@ const LandingPage = () => {
 
         <div className="grid grid-cols-3">
           {allProduct.map((el: productItemType, _index: number) => {
-            const { title, image, price, id } = el;
+            const { title, image, price, id, inCart, outOfStock } = el;
 
             return (
               <CartItem
@@ -23,6 +35,8 @@ const LandingPage = () => {
                 title={title}
                 img={image}
                 price={price}
+                inCart={inCart}
+                outOfStock={outOfStock}
               />
             );
           })}

@@ -1,6 +1,6 @@
 import { CartTypes } from "../tsd/product";
 import { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import {
   decrementTotalQuantity,
   incrementTotalQuantity,
@@ -8,7 +8,7 @@ import {
 } from "../store/productSlice";
 import { formatToCurrency } from "../utilities/priceFormatter";
 
-const CartItemCard = ({
+const CartItems = ({
   id,
   title,
   subtitle,
@@ -22,8 +22,6 @@ const CartItemCard = ({
   qty,
 }: CartTypes) => {
   const [quantity, setQuantity] = useState<number>(qty);
-  const [increment, setIncrement] = useState<boolean>(false);
-  const [decrement, setDecrement] = useState<boolean>(false);
 
   const dispatch = useDispatch();
 
@@ -31,24 +29,15 @@ const CartItemCard = ({
     dispatch(setTotalQuantityDefaulltValue());
   }, []);
 
-  useEffect(() => {
-    if (increment) {
-      dispatch(incrementTotalQuantity(1));
-      setIncrement(false);
-    } else if (decrement) {
-      dispatch(decrementTotalQuantity(1));
-      setDecrement(false);
-    }
-  }, [quantity, increment, decrement]);
-
   const incrementQty = () => {
+    dispatch(incrementTotalQuantity(1));
     setQuantity((prev) => prev + 1);
-    setIncrement(true);
   };
 
   const decrementQty = () => {
-    quantity > 1 && setQuantity((prev) => prev - 1);
-    setDecrement(true);
+    quantity > 1 &&
+      dispatch(decrementTotalQuantity(1)) &&
+      setQuantity((prev) => prev - 1);
   };
 
   return (
@@ -60,13 +49,18 @@ const CartItemCard = ({
         <div className="mb-4">
           <p className="text-sm font-bold">SIZE</p>
           <div className="flex">
-            {size.map((el) =>
+            {size.map((el, indx) =>
               selectedSize === el ? (
-                <div className="px-2 py-1 border border-black text-white bg-black mr-2">
+                <div
+                  key={indx}
+                  className="px-2 py-1 border border-black text-white bg-black mr-2"
+                >
                   {el}
                 </div>
               ) : (
-                <div className="px-2 py-1 border border-black  mr-2">{el}</div>
+                <div key={indx} className="px-2 py-1 border border-black  mr-2">
+                  {el}
+                </div>
               )
             )}
           </div>
@@ -74,8 +68,9 @@ const CartItemCard = ({
         <div className="mb-4">
           <p className="text-sm font-bold">COLOR</p>
           <div className="flex">
-            {color.map((el) => (
+            {color.map((el, indx) => (
               <div
+                key={indx}
                 className="px-2 py-2 border border-black mr-2"
                 style={{ background: `${el}` }}
               ></div>
@@ -107,4 +102,4 @@ const CartItemCard = ({
   );
 };
 
-export default CartItemCard;
+export default CartItems;

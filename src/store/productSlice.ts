@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, current } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 import { CartTypes, allProductAndCartTypes } from "../tsd/product";
 import products from "../products.json";
@@ -32,6 +32,24 @@ export const productSlice = createSlice({
     getProduct: (state, action: PayloadAction<number>) => {
       const product = state.allProduct.filter((el) => el.id === action.payload);
       state.singleProduct = product[0];
+    },
+
+    checkIfProductInCart: (state) => {
+      for (var i = 0; i < state.allProduct.length; i++) {
+        for (var j = 0; j < state.cart.length; j++) {
+          if (state.allProduct[i].id === state.cart[j].id) {
+            state.allProduct[i].inCart = true;
+          }
+        }
+      }
+    },
+
+    //NOTE: their is no UI REPRESENTATION FOR  REMOVING ITEM FROM CART SO THE BELOW FUNCTION REDUCER
+    // IS NOT USED IN THE APPLICATION
+
+    removeProductFromCart: (state, action: PayloadAction<number>) => {
+      const product = state.allProduct.filter((el) => el.id !== action.payload);
+      state.allProduct = product;
     },
 
     addTocart: (state, action: PayloadAction<CartTypes>) => {
@@ -80,5 +98,6 @@ export const {
   setTotalQuantityDefaulltValue,
   setShowModal,
   changeCurrency,
+  checkIfProductInCart,
 } = productSlice.actions;
 export default productSlice.reducer;

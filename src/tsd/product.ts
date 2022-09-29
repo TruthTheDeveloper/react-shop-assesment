@@ -3,6 +3,8 @@ export interface productItemType {
   title: string;
   price: number;
   image: string;
+  inCart: boolean;
+  outOfStock: boolean;
 }
 
 export interface CartTypes {
@@ -17,6 +19,7 @@ export interface CartTypes {
   selectedColor: string;
   selectedSize: string;
   qty: number;
+  inCart: boolean;
 }
 
 export type allProductAndCartTypes = {
@@ -28,8 +31,9 @@ export type allProductAndCartTypes = {
   image: string;
   color: string[];
   size: string[];
+  inCart: boolean;
+  outOfStock: boolean;
 };
-
 
 export interface PaymentRef {
   message: string;

@@ -7,9 +7,12 @@ import { formatToCurrency } from "../utilities/priceFormatter";
 import PaymentWithPaystack from "./paymentWithPaystack";
 import { PaymentRef } from "../tsd/product";
 
-const CartModel = () => {
+interface props {
+  resetScroll: () => void;
+}
 
-  const DROPDOWN_TYPE = 'drop'
+const CartModel = ({ resetScroll }: props) => {
+  const DROPDOWN_TYPE = "drop";
   const navigateTo = useNavigate();
 
   const { cart, totalCost, currency } = useSelector(
@@ -18,6 +21,7 @@ const CartModel = () => {
 
   const viewBackButtonHandler = () => {
     navigateTo("/cart");
+    resetScroll();
   };
 
   const paymentResponse = (ref: PaymentRef) => {
@@ -26,7 +30,7 @@ const CartModel = () => {
 
   return (
     <div>
-      <div className=" justify-between  bg-white absolute top-16 right-0 mr-24 overflow-scroll h-[30rem]">
+      <div className=" justify-between  bg-white absolute top-16 right-0 mr-24 overflow-scroll z-40 h-[30rem]">
         <h1 className="mx-2 text-sm mt-4">
           <span className="font-semibold mr-2">My bag</span>
           {cart.length} Items
@@ -44,6 +48,7 @@ const CartModel = () => {
             selectedColor,
             selectedSize,
             qty,
+            inCart,
           } = el;
           return (
             <CartModelItem
@@ -59,6 +64,7 @@ const CartModel = () => {
               selectedColor={selectedColor}
               selectedSize={selectedSize}
               qty={qty}
+              inCart={inCart}
             />
           );
         })}
@@ -82,7 +88,6 @@ const CartModel = () => {
               paymentResponse={paymentResponse}
               btn={DROPDOWN_TYPE}
             />
-            
           </div>
         </div>
       </div>

@@ -1,5 +1,4 @@
-import { useState } from "react";
-import CartItem from "../components/CartItems";
+import CartItems from "../components/CartItems";
 import type { RootState } from "../store";
 import { useSelector } from "react-redux";
 import { CartTypes } from "../tsd/product";
@@ -7,11 +6,8 @@ import { formatToCurrency } from "../utilities/priceFormatter";
 import PaymentWithPaystack from "../components/paymentWithPaystack";
 import { PaymentRef } from "../tsd/product";
 
-
-
 const Cart = () => {
-  
-  const CART_TYPE = 'cart'
+  const CART_TYPE = "cart";
 
   const { cart, totalCost, tax, totalQuantity, currency } = useSelector(
     (state: RootState) => state.productReducer
@@ -38,9 +34,10 @@ const Cart = () => {
           selectedColor,
           selectedSize,
           qty,
+          inCart,
         } = el;
         return (
-          <CartItem
+          <CartItems
             key={id}
             id={id}
             title={title}
@@ -53,6 +50,7 @@ const Cart = () => {
             selectedColor={selectedColor}
             selectedSize={selectedSize}
             qty={qty}
+            inCart={inCart}
           />
         );
       })}
@@ -67,9 +65,7 @@ const Cart = () => {
         </div>
         <div>
           <span>Quantity </span>{" "}
-          <span className="mx-3 font-bold">
-            {`${totalQuantity}`}
-          </span>
+          <span className="mx-3 font-bold">{`${totalQuantity}`}</span>
         </div>
         <div>
           <span>Total </span>{" "}

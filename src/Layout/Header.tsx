@@ -2,10 +2,13 @@ import { useState } from "react";
 import { Outlet } from "react-router-dom";
 import logo from "../assets/logo.png";
 import dropdown from "../assets/dropdown.png";
-import cartImage from "../assets/cart.png";
-import CartModel from "../components/CartModel";
+import cartImage from "../assets/cartshop.svg";
+
 //React router
 import { NavLink } from "react-router-dom";
+
+//Components
+import CartModel from "../components/CartModel";
 
 import { setShowModal, changeCurrency } from "../store/productSlice";
 import { useDispatch, useSelector } from "react-redux";
@@ -102,21 +105,20 @@ const Header = () => {
               )}
             </div>
             <div className="m-1 cursor-pointer" onClick={showCart}>
-              {cart.length > 0 && (
-                <div
-                  className="bg-black text-white rounded-full text-center text-xs h-4 w-6 ml-5 z-30"
-                  style={{ marginBottom: "-15px" }}
-                >
-                  {cart.length}
-                </div>
-              )}
-              <img src={cartImage} className="w-full " />
+              <div className="relative w-full h-full">
+                <img src={cartImage} className="w-full " />
+                {cart.length > 0 && (
+                  <div className="bg-black text-white text-center text-xs h-[18px] w-[18px] rounded-[20px] absolute top-[-5px] right-[-10px]">
+                    {cart.length}
+                  </div>
+                )}
+              </div>
             </div>
           </div>
         </nav>
       </header>
       <div
-        className={`w-full h-screen bg-white  fixed top-16  ${
+        className={`w-full h-screen bg-white  fixed top-16 z-30 ${
           scroll ? `visible` : "hidden"
         } `}
         style={{
@@ -127,7 +129,7 @@ const Header = () => {
         onClick={modalHandler}
       ></div>
       <Outlet />
-      {showModal && <CartModel />}
+      {showModal && <CartModel resetScroll={() => modalHandler()} />}
     </>
   );
 };

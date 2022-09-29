@@ -8,7 +8,7 @@ const PaymentWithPaystack = ({ amount = 0, paymentResponse, btn }) => {
     reference: new Date().getTime().toString(),
     email: "user@example.com",
     amount: amount,
-    publicKey: process.env.REACT_APP_API_KEY
+    publicKey: process.env.REACT_APP_API_KEY,
   };
 
   // you can call this function anything
@@ -28,21 +28,25 @@ const PaymentWithPaystack = ({ amount = 0, paymentResponse, btn }) => {
     const initializePayment = usePaystackPayment(config);
     return (
       <div>
-        {btn === 'cart' ? <button
-          className="px-24 text-sm py-2 bg-green-400 text-white my-4"
-          onClick={() => {
-            initializePayment(handleSuccess, onClose);
-          }}
-        >
-          ORDER
-        </button>:<button
-              className="px-6 mx-1 py-2 my-4 bg-green-400 text-white text-sm"
-              onClick={() => {
-                initializePayment(handleSuccess, onClose);
-              }}
-            >
-              CHECKOUT
-            </button>}
+        {btn === "cart" ? (
+          <button
+            className="px-24 text-sm py-2 bg-green-400 text-white my-4"
+            onClick={() => {
+              initializePayment(handleSuccess, onClose);
+            }}
+          >
+            ORDER
+          </button>
+        ) : (
+          <button
+            className="px-6 mx-1 py-2 my-4 bg-green-400 text-white text-sm"
+            onClick={() => {
+              initializePayment(handleSuccess, onClose);
+            }}
+          >
+            CHECKOUT
+          </button>
+        )}
       </div>
     );
   };
