@@ -29,7 +29,7 @@ const CartItem = ({ id, img, title, price, inCart, outOfStock }: props) => {
     if (inCart) {
       return (
         <div
-          className="w-64 mt-12 mx-auto shadow-md p-5 relative"
+          className="w-64 mt-12 mx-auto shadow-md p-5 relative cursor-not-allowed"
         >
           <div className="">
             <img src={img} alt="" />
@@ -50,7 +50,7 @@ const CartItem = ({ id, img, title, price, inCart, outOfStock }: props) => {
     } else if (outOfStock) {
       return (
         <div
-          className="w-64 mt-12 mx-auto shadow-md p-5 relative opacity-40"
+          className="w-64 mt-12 mx-auto shadow-md p-5 relative opacity-40 cursor-not-allowed"
         >
           <div className="">
             <img src={img} alt="" />
