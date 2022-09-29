@@ -30,7 +30,6 @@ const CartItem = ({ id, img, title, price, inCart, outOfStock }: props) => {
       return (
         <div
           className="w-64 mt-12 mx-auto shadow-md p-5 relative"
-          onClick={navigate}
         >
           <div className="">
             <img src={img} alt="" />
@@ -52,7 +51,6 @@ const CartItem = ({ id, img, title, price, inCart, outOfStock }: props) => {
       return (
         <div
           className="w-64 mt-12 mx-auto shadow-md p-5 relative opacity-40"
-          onClick={navigate}
         >
           <div className="">
             <img src={img} alt="" />
